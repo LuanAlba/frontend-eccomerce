@@ -1,0 +1,48 @@
+<div class="container main-container">
+    <h4>Excluir {{ endereco.logradouro }} </h4>
+    <br>
+    <h5>Você tem certeza disso?</h5>
+
+    <div class="row">
+        <div class="col-md-6">
+            <dl>
+                <dt>
+                    Logradouro
+                </dt>
+                <dd>
+                    {{ endereco.logradouro }}
+                </dd>
+                <dt>
+                    Númmero
+                </dt>
+                <dd>
+                    {{ endereco.numero }}
+                </dd>
+                <dt>
+                    Complemento
+                </dt>
+                <dd>
+                    {{ endereco.complemento }}
+                </dd>
+                <dt>
+                    Bairro
+                </dt>
+                <dd>
+                    {{ endereco.bairro }}
+                </dd>
+                <dt>
+                    CEP
+                </dt>
+                <dd>
+                    {{ endereco.cep }}
+                </dd>
+            </dl>
+
+            <div>
+                <a href="javascript:void(0)" class="btn btn-danger">Excluir</a>&nbsp;
+                <a class="btn btn-info" href="javascript:window.history.back();">Voltar</a>
+            </div>
+        </div>
+    </div>
+
+</div>

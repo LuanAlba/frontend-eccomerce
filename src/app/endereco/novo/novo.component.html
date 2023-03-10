@@ -1,0 +1,94 @@
+<div class="container main-container">
+
+    <h3>Novo Endereco </h3>
+
+    <hr>
+    <div class="row">
+        <div class="col-md-10">
+            <form enctype="multipart/form-data" (ngSubmit)="adicionarEndereco()" [formGroup]="enderecoForm">
+
+                <div class="alert alert-danger" *ngIf="errors.length > 0">
+                    <h3 id="msgRetorno">Opa! Alguma coisa não deu certo:</h3>
+                    <ul>
+                        <li *ngFor="let error of errors">{{ error }}</li>
+                    </ul>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Rua</label>
+                    <div>
+                        <textarea cols="40" rows="5" maxlength="1000" class="form-control" id="logradouro" placeholder="Rua (requerido)" formControlName="logradouro" [ngClass]="{'is-invalid': displayMessage.logradouro }"></textarea>
+                        <span class="text-danger" *ngIf="displayMessage.logradouro">
+                            <p [innerHTML]="displayMessage.logradouro"></p>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Numero</label>
+                    <div>
+                        <input class="form-control" id="numero" type="text" placeholder="número (requerido)" formControlName="numero" [ngClass]="{'is-invalid': displayMessage.numero }" />
+                        <span class="text-danger" *ngIf="displayMessage.numero">
+                            <p [innerHTML]="displayMessage.numero"></p>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Complemento</label>
+                    <div>
+                        <input class="form-control" id="complemento" type="text" placeholder="complemento (bloco/apto) " formControlName="complemento" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Bairro</label>
+                    <div>
+                        <input class="form-control" id="bairro" type="text" placeholder="bairro (requerido)" formControlName="bairro" [ngClass]="{'is-invalid': displayMessage.bairro }"/>
+                        <span class="text-danger" *ngIf="displayMessage.bairro">
+                            <p [innerHTML]="displayMessage.bairro"></p>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Cidade</label>
+                    <div>
+                        <input class="form-control" id="cidade" type="text" placeholder="cidade (requerido)" formControlName="cidade" [ngClass]="{'is-invalid': displayMessage.cidade }"/>
+                        <span class="text-danger" *ngIf="displayMessage.cidade">
+                            <p [innerHTML]="displayMessage.cidade"></p>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">CEP</label>
+                    <div>
+                        <input class="form-control" id="cep" type="text" placeholder="CEP (requerido)" formControlName="cep" [ngClass]="{'is-invalid': displayMessage.cep }"/>
+                        <span class="text-danger" *ngIf="displayMessage.cep">
+                            <p [innerHTML]="displayMessage.cep"></p>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Nome recebedor</label>
+                    <div>
+                        <input class="form-control" id="nomeRecebedor" type="text" placeholder="nome do recebedor" formControlName="nomeRecebedor" />
+                    </div>
+                </div>
+
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="ehEnderecoPadrao" formControlName="ehEnderecoPadrao" name="ehEnderecoPadrao" value="false"> Endereço principal?
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" id="cadastroEndereco" [disabled]="!enderecoForm.valid" value="Cadastrar" class="btn btn-primary">&nbsp;
+                    <a class="btn btn-info" href="/enderecos/listar-enderecos">Voltar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
